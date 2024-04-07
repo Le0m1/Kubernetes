@@ -1,0 +1,15 @@
+# Використовуємо базовий образ Python
+FROM python:3.8-slim
+
+# Встановлюємо залежності
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Копіюємо файли в робочу директорію контейнера
+COPY . /app
+
+# Вказуємо робочу директорію
+WORKDIR /app
+
+# Вказуємо команду, яка буде виконуватися при запуску контейнера
+CMD ["python", "app.py"]
